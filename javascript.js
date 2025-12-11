@@ -87,6 +87,24 @@ function playGame() {
         //INVOKE playRound function with above variables as arguments//
         playRound(humanSelection, computerSelection);
     }
+
+    // IF human score is greater than computer score//
+    if( humanScore > computerScore) {
+        //Display human as a winner//
+        console.log(`Congrats! You win with the score of ${humanScore} - ${computerScore}`)
+    }
+
+    // ELSE IF human score is less than computer score//
+    else if( humanScore > computerScore) {
+        //Display human as a loser//
+        console.log(`Ahhhh! You lose with the score of ${humanScore} - ${computerScore}`)
+    }
+
+    //ELSE //
+    else {
+        //Display a tie result//
+        console.log(`Ooof! It is a tie with the score of ${humanScore} - ${humanScore} `)
+    }
 }
 
 //INVOKE playGame function//
