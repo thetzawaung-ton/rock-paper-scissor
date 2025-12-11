@@ -3,20 +3,25 @@ console.log("hello world")
 function getComputerChoice() {
     //GET computer choice with random number generator from 1 to 3//
     let computerChoice = Math.floor((Math.random() * 3) + 1);
-    //IF number is 1, return with the string 'Rock'//
-    //ELSE IF number is 2, return with the string 'Paper'//
-    //ELSE return 'Scissors'//
+    //IF number is 1, return with the string 'rock'//
+    //ELSE IF number is 2, return with the string 'paper'//
+    //ELSE return 'scissors'//
     if(computerChoice === 1) {
-        return 'Rock';
+        return 'rock';
     } else if ( computerChoice === 2) {
-        return 'Paper';
+        return 'paper';
     } else {
-        return 'Scissors';
+        return 'scissors';
     }
 }
 
 function getHumanChoice() {
-    //GET human choice with prompt and return the same input//
+    //GET human choice with prompt//
     let humanChoice = prompt('What do you choose? Rock, Paper, or Scissors', '');
-    return humanChoice;
+    //DISPLAY the human choice in lowercase letters//
+    return humanChoice.toLowerCase();
 }
+
+//CREATE new variables for human and computer score and set initial value to 0//
+let humanScore = 0;
+let ComputerScore = 0;
