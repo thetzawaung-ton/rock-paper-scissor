@@ -19,59 +19,11 @@ function getComputerChoice() {
 let humanScore = 0;
 let computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
-    //IF humanChoice is rock and computerChoice is paper//
-    if(humanChoice === 'rock' && computerChoice === 'paper') {
-        //DISPLAY human loses//
-        console.log('You lose! Paper beats rock');
-        //ADD computer score by 1//
-        computerScore += 1;
-    }
-    //ELSE IF humanChoice is paper and computerChoice is scissors//
-    else if(humanChoice === 'paper' && computerChoice === 'scissors') {
-        //DISPLAY human loses//
-        console.log('You lose! Scissors beats paper');
-        //ADD computer score by 1//
-        computerScore += 1;
-    }
-    //ELSE IF humanChoice is scissors and computerChoice is rock//
-    else if(humanChoice === 'scissors' && computerChoice === 'rock') {
-        //DISPLAY human loses//
-        console.log('You lose! Rock beats scissors');
-        //ADD computer score by 1//
-        computerScore += 1;
-    }
-    //ELSE IF humanChoice is rock and computerChoice is scissors//
-    else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-        //DISPLAY human wins//
-        console.log ('You win! Rock beats scissors');
-        //ADD human score by 1//
-        humanScore += 1;
-    }
-    //ELSE IF humanChoice is sicssors and computerChoice is paper//
-    else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-        //DISPLAY human wins//
-        console.log ('You win! Scissors beats paper');
-        //ADD computer score by 1//
-        computerScore += 1;
-    }
-    //ELSE IF humanChoice is same as computerChoice//
-    else if (humanChoice === computerChoice) {
-        //DISPLAY as a tie//
-        console.log ('Ooof! It is a tie');
-    }
-    //ELSE//
-    else {
-        //DISPLAY human wins//
-        console.log ('You wins! Paper beats rock');
-        //ADD computer score by 1//
-        computerScore += 1;
-    }
-}
-
+//SET initial values for human and computer selections
 let humanSelection = '';
 let computerSelection = getComputerChoice();
 
+//CREATE elements and put them in body
 const rockButton = document.createElement('button');
 rockButton.textContent = 'rock';
 
@@ -86,8 +38,26 @@ const result = document.createElement('div');
 const body = document.querySelector('body');
 body.append(result,rockButton, paperButton, scissorsButton);
 
+
+//FUNCTION for deciding human or computer wins and add scores
+function playRound(humanChoice, computerChoice) {
+    if(humanChoice === 'rock' && computerChoice === 'paper' ||
+        humanChoice === 'paper' && computerChoice === 'scissors' ||
+        humanChoice === 'scissors' && computerChoice === 'rock'
+    ) {
+        result.textContent = `You lose because ${computerChoice} beats ${humanChoice}`;
+        computerScore += 1;
+    } else if (humanChoice === computerChoice) {
+        result.textContent = `It's a tie! You both chose ${humanChoice}`;
+    } else {
+        result.textContent = `You win because ${humanChoice} beats ${computerChoice}`;
+        humanScore += 1;
+    }
+}
+
 const buttons = document.querySelectorAll('button');
 
+//CREATE addEventListener to connect human selection and buttons
 buttons.forEach(button => {
     button.addEventListener('click', function(e) {
         humanSelection = e.target.textContent;
