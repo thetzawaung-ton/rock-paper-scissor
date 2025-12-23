@@ -43,6 +43,9 @@ body.append(result,score,rockButton, paperButton, scissorsButton);
 
 //FUNCTION for deciding human or computer wins and add scores
 function playRound(humanChoice, computerChoice) {
+    //IF computer choice beats human
+    //DISPLAY wins the round and vice versa AND
+    //DISPLAY a tie if choices are same
     if(humanChoice === 'rock' && computerChoice === 'paper' ||
         humanChoice === 'paper' && computerChoice === 'scissors' ||
         humanChoice === 'scissors' && computerChoice === 'rock'
@@ -55,7 +58,18 @@ function playRound(humanChoice, computerChoice) {
         result.textContent = `You win because ${humanChoice} beats ${computerChoice}`;
         humanScore += 1;
     }
-    score.textContent = `Human Score: ${humanScore}   Computer Score: ${computerScore}`
+    //DISPLAY the running score, announce winner when one reach 5 AND 
+    //SET the scores back to 0
+    score.textContent = `Human Score: ${humanScore}   Computer Score: ${computerScore}`;
+    if(humanScore === 5) {
+        score.textContent = `You win with a score of ${humanScore} - ${computerScore}`;
+        humanScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        score.textContent = `You lose with a score of ${computerScore} - ${humanScore}`;
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
 
 const buttons = document.querySelectorAll('button');
