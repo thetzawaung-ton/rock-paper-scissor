@@ -81,8 +81,10 @@ paperButton.textContent = 'paper';
 const scissorsButton = document.createElement('button');
 scissorsButton.textContent = 'scissors';
 
+const result = document.createElement('div');
+
 const body = document.querySelector('body');
-body.append(rockButton, paperButton, scissorsButton);
+body.append(result,rockButton, paperButton, scissorsButton);
 
 const buttons = document.querySelectorAll('button');
 
