@@ -35,8 +35,10 @@ scissorsButton.textContent = 'scissors';
 
 const result = document.createElement('div');
 
+const score = document.createElement('div');
+
 const body = document.querySelector('body');
-body.append(result,rockButton, paperButton, scissorsButton);
+body.append(result,score,rockButton, paperButton, scissorsButton);
 
 
 //FUNCTION for deciding human or computer wins and add scores
@@ -53,6 +55,7 @@ function playRound(humanChoice, computerChoice) {
         result.textContent = `You win because ${humanChoice} beats ${computerChoice}`;
         humanScore += 1;
     }
+    score.textContent = `Human Score: ${humanScore}   Computer Score: ${computerScore}`
 }
 
 const buttons = document.querySelectorAll('button');
